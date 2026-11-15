@@ -1,0 +1,30 @@
+---
+import { prices, launchOffer } from "../data/site";
+---
+<section id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Prices</p>
+      <h2>Clear prices, telescopes and team included</h2>
+      <p class="lede">Every session includes our telescopes, equipment and astronomers. For large or unusual groups, message us for an exact quote.</p>
+    </div>
+    <div class="prices">
+      {prices.map((g) => (
+        <div class:list={["plist", { feat: g.featured }]}>
+          <p class="eyebrow">{g.label}</p>
+          {g.featured && launchOffer && (
+            <p class="offer" data-until={launchOffer.until}><b>Launch offer</b>{launchOffer.text}</p>
+          )}
+          {g.items.map((i) => (
+            <div class="pitem">
+              <h3>{i.name}</h3>
+              <div class="amt">{i.amount}<small>{i.unit}</small></div>
+              <p>{i.note}</p>
+            </div>
+          ))}
+          <a class:list={["btn", g.featured ? "btn-red" : "btn-ghost"]} href="#book" data-who={g.who}>{g.cta}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

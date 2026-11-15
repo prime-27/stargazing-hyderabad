@@ -1,0 +1,28 @@
+---
+const activities = ["Comet making", "Moon phases demo", "DIY solar system models", "Eclipse demonstrations", "Astronomy basics & theory", "Safe solar observation"];
+const includes = ["Interactive astronomy session", "Laser-guided constellation tour", "High-resolution Moon observation", "Deep sky and planet observation", "Astrophotography demonstration", "Open Q&A with experts", "Hands-on activities for the classroom", "Participation certificates for every student"];
+---
+<section id="schools">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">For schools · Flagship programme</p>
+      <h2>School Astronomy Night</h2>
+      <p class="lede">Transform your campus into an observatory. A structured, engaging evening of discovery that brings the night sky directly to your students.</p>
+      <div class="meta"><span>Duration <b>2–3 hours</b></span><span>Where <b>your school ground or terrace</b></span><span>Language <b>English · Telugu</b></span></div>
+      <div class="stack" style="gap:12px">
+        <p style="color:var(--muted)">Add classroom activities to the night, or run them as a daytime workshop:</p>
+        <div class="chips">{activities.map((a) => <span>{a}</span>)}</div>
+      </div>
+      <div><a class="btn btn-red" href="#book" data-who="School">Book for your school</a></div>
+    </div>
+    <div class="panel">
+      <h3>The evening includes</h3>
+      <ul class="ticks">{includes.map((i) => <li>{i}</li>)}</ul>
+      <div class="teacher">
+        <b>For teachers</b>
+        <p>Free lesson packs for Classes 6 to 10, with lesson plans, printable worksheets and answer keys in English and Telugu.</p>
+        <a href="https://beyondthesky.in/school-astronomy-workshops" target="_blank" rel="noopener">Get the lesson packs on beyondthesky.in ↗</a>
+      </div>
+    </div>
+  </div>
+</section>

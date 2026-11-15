@@ -1,0 +1,17 @@
+---
+import { programmes } from "../data/site";
+---
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Our programmes</p>
+      <h2>Four ways to look up</h2>
+      <p class="lede">Mix and match these for your school, campus or group.</p>
+    </div>
+    <div class="progs">
+      {programmes.map((p) => (
+        <div class="prog"><small>{p.tag}</small><h3>{p.title}</h3><ul>{p.items.map((i) => <li>{i}</li>)}</ul></div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+---
+import { contact } from "../data/site";
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap">
+    <span>© {year} Stargazing Hyderabad · Sessions by <a href={contact.mainSite} target="_blank" rel="noopener">Beyond The Sky</a></span>
+    <span>Hyderabad, Telangana · {contact.phone}</span>
+  </div>
+</footer>

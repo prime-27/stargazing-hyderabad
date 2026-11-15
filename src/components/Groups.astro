@@ -1,0 +1,20 @@
+---
+const occasions = ["Birthdays", "Apartment communities", "Family nights", "Colleges & clubs", "Company outings", "Meteor shower camps"];
+const includes = ["Telescope views of the Moon, planets and deep sky objects", "Safe solar observation (daytime)", "Meteor shower camps", "Astrophotography demonstration", "Astronomy talks for every age group", "Hands-on activities for kids"];
+---
+<section id="groups">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">Groups &amp; communities</p>
+      <h2>Private stargazing nights</h2>
+      <p class="lede">We don't sell tickets to public events. You book a session, and we bring the telescopes to your group, campus, community or event in and around Hyderabad.</p>
+      <div class="chips">{occasions.map((o) => <span>{o}</span>)}</div>
+      <p style="color:var(--muted)">Tell us who the session is for, roughly how many people, and when. The sky and weather decide a lot, so we plan the details with you.</p>
+      <div><a class="btn btn-red" href="#book" data-who="Apartment society / family">Plan your night</a></div>
+    </div>
+    <div class="panel">
+      <h3>A session can include</h3>
+      <ul class="ticks">{includes.map((i) => <li>{i}</li>)}</ul>
+    </div>
+  </div>
+</section>

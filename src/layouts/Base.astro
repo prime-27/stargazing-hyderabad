@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { contact, offersForGoogle } from "../data/site";
+
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Stargazing Hyderabad by Beyond The Sky",
+  url: "https://stargazinghyderabad.com/",
+  telephone: "+91 9963281287",
+  email: contact.email,
+  address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressRegion: "Telangana", addressCountry: "IN" },
+  areaServed: { "@type": "City", name: "Hyderabad" },
+  parentOrganization: { "@type": "Organization", name: "Beyond The Sky", url: contact.mainSite },
+  sameAs: [contact.mainSite, `https://www.instagram.com/${contact.instagram}/`],
+  makesOffer: offersForGoogle.map((o) => ({
+    "@type": "Offer", price: String(o.price), priceCurrency: "INR", description: o.description,
+    itemOffered: { "@type": "Service", name: o.name },
+  })),
+};
+---
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0a0f1f" />
+    <meta name="geo.region" content="IN-TG" />
+    <meta name="geo.placename" content="Hyderabad" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Stargazing Hyderabad" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <Header />
+    <main id="top"><slot /></main>
+    <Footer />
+    <script>import "../scripts/sky.ts";</script>
+  </body>
+</html>

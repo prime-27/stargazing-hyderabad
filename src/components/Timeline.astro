@@ -1,0 +1,21 @@
+---
+const steps = [
+  { time: "6:30 PM", title: "We set up", text: "Our team arrives at your venue and sets up the telescopes before dark." },
+  { time: "7:00 PM", title: "Sky talk", text: "An interactive astronomy session to explain what everyone is about to see." },
+  { time: "7:30 PM", title: "Constellation tour", text: "Bright stars, constellations and nakshatras, traced with a laser pointer." },
+  { time: "8:00 PM", title: "Telescopes", text: "The Moon in high resolution, then planets and deep sky objects, one by one." },
+  { time: "9:00 PM", title: "Photos & Q&A", text: "An astrophotography demo and open questions with our astronomers." },
+];
+---
+<section id="night">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How a session goes</p>
+      <h2>From first light to the Milky Way's stories</h2>
+      <p class="lede">A typical School Astronomy Night. We adjust the timings for your group.</p>
+    </div>
+    <ol class="steps">
+      {steps.map((s) => <li><time>{s.time}</time><h3>{s.title}</h3><p>{s.text}</p></li>)}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+import { contact } from "../data/site";
+const options = ["School", "Apartment society / family", "Birthday or private event", "College or club", "Company", "Meteor shower camp", "Astrophotography workshop", "Daytime solar observation"];
+---
+<section id="book">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Book</p>
+      <h2 style="margin-top:14px">Request a session</h2>
+      <p class="lede" style="margin-top:16px">Tell us who it's for and when. We'll open WhatsApp with your request ready to send, and get back to you to plan the night.</p>
+      <div class="contact-list">
+        <div><small>Call or WhatsApp</small><a href={`tel:${contact.phone.replace(/\s/g, "")}`}><strong>{contact.phone}</strong></a></div>
+        <div><small>Email</small><a href={`mailto:${contact.email}`}><strong>{contact.email}</strong></a></div>
+        <div><small>Instagram</small><a href={`https://www.instagram.com/${contact.instagram}/`} target="_blank" rel="noopener"><strong>@{contact.instagram}</strong></a></div>
+      </div>
+    </div>
+    <form id="bookForm" novalidate>
+      <label for="f-who">Who is it for?
+        <select id="f-who" name="who">{options.map((o) => <option>{o}</option>)}</select>
+      </label>
+      <div class="row">
+        <label for="f-name">Your name<input id="f-name" name="name" required placeholder="Priya Reddy" autocomplete="name" /></label>
+        <label for="f-org">School / venue / area<input id="f-org" name="org" placeholder="e.g. Kondapur" /></label>
+      </div>
+      <div class="row">
+        <label for="f-people">About how many people<input id="f-people" name="people" type="number" min="1" max="2000" value="30" /></label>
+        <label for="f-date">Preferred date<input id="f-date" name="date" type="date" /></label>
+      </div>
+      <label for="f-note">Anything else<textarea id="f-note" name="note" rows="3" placeholder="Classes or ages, occasion, questions…"></textarea></label>
+      <button class="btn btn-red" type="submit">Continue to WhatsApp</button>
+      <div class="result" id="result" hidden>
+        <span>Your message:</span>
+        <pre id="msg"></pre>
+        <a class="btn btn-red" id="waLink" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+      </div>
+    </form>
+  </div>
+</section>
